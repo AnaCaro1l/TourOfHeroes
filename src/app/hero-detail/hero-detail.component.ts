@@ -19,6 +19,7 @@ import { UpperCasePipe } from '@angular/common';
 export class HeroDetailComponent implements OnInit{
   hero: Hero | undefined;
 
+
   constructor(
     private heroService: HeroService,
     private route: ActivatedRoute,
@@ -29,7 +30,7 @@ export class HeroDetailComponent implements OnInit{
     this.getHero();
   }
 
-  getHero(): void {
+  getHero() {
     const id = parseInt(this.route.snapshot.paramMap.get("id")!, 10);
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
